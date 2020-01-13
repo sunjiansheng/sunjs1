@@ -1,0 +1,995 @@
+prompt Importing table TC_REP_DATASET...
+set feedback off
+set define off
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('B310906B88FE4642B011E57AFE2E2D13', 'A00093', 'Ð¡¶î´û¿îÍ¶×ÊÃ÷Ï¸', 'SELECT  FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_JYHTBH,T3.C_JYHTMC,T1.QMSZ,
+        T3.ZRJK,T3.JYLL,T3.ZRRDM,T3.ZRRMC,T3.ZRRQ,T3.DQRQ,
+        CASE WHEN TRIM(RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       d.TA_PF_ID,
+       d.CPDM,
+       C.SYMBOL_CODE,
+       C.SEC_CODE_NAME,
+       SUM(ATTYPE_AMOUNT_OC) QMSZ
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE, C.SEC_CODE_NAME,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN 
+ (SELECT C_ZCDM,
+       C_ZCMC,
+       C_ZRJK          ZRJK,
+       C_JYLL          JYLL,
+       C_ZRRDM         ZRRDM,
+       C_ZRRMC         ZRRMC,
+       C_ZRRQ          ZRRQ,
+       C_JSRQ          DQRQ,
+       C_JYHTBH,C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_ZRRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_XEDK''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1057', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('F0D11305006D467AB6A8E3C443649D04', 'A00090', 'Ó¦ÊÕÕË¿îÍ¶×ÊÃ÷Ï¸', 'SELECT  FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_JYHTBH,T3.C_JYHTMC,T1.QMSZ,
+        T3.ZKLB,T3.ZRJK,T3.JYLL,T3.ZRRDM,T3.ZRRMC,T3.ZRRQ,T3.DQRQ,
+        CASE WHEN TRIM(RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       d.TA_PF_ID,
+       d.CPDM,
+       C.SYMBOL_CODE,
+       C.SEC_CODE_NAME,
+       SUM(ATTYPE_AMOUNT_OC) QMSZ
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE, C.SEC_CODE_NAME,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN 
+ (SELECT C_ZCDM,
+       C_ZCMC,
+       C_ZKLB          ZKLB,
+       C_ZRJK          ZRJK,
+       C_JYLL          JYLL,
+       C_ZRRDM         ZRRDM,
+       C_ZRRMC         ZRRMC,
+       C_ZRRQ          ZRRQ,
+       C_JSRQ          DQRQ,
+       C_JYHTBH,C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_ZRRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_YSZK''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1054', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('FE457F18B578456D8A7F3FD604490805', 'A00068', '»îÆÚ´æ¿îÍ¶×ÊÃ÷Ï¸', '
+--»îÆÚ´æ¿îÍ¶×ÊÃ÷Ï¸
+
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+       NVL(B.CPDM, '''') AS CPDM,
+       NVL(SUM(A.ATTYPE_AMOUNT_OC), 0) AS QMJE,
+       NULL AS BZ
+       ,''1060000001'' AS PF_ID
+  FROM TC_HP_PB_DOM_INFO A
+  LEFT JOIN V_PF_CPDM B
+    ON A.PF_ID = B.PF_ID
+ WHERE A.BIZ_DATE = ''${FENDDATE}''
+   AND A.PF_ID ${PFID}
+   AND A.C_DV_KM_CLS = ''KC_ZC''
+   AND A.C_DAI_CODE = ''HBZJ''
+   AND A.C_CA_CODE = ''ACC_SAV''
+   AND B.END_DATE > ''${FENDDATE}''
+ GROUP BY B.CPDM
+ ORDER BY B.CPDM              ', '0', null, 'A1032', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('D741C838075D4ACFB3DF136036D5AFAE', 'A00091', 'Ãû¹ÉÊµÕ®Í¶×ÊÃ÷Ï¸', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_JYHTBH,T3.C_JYHTMC,T1.QMSZ,
+        T3.MGSZXS,T3.GSDM,T3.GQMC,T3.QSRQ,T3.DQRQ,
+        CASE WHEN TRIM(RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       d.TA_PF_ID,
+       d.CPDM,
+       C.SYMBOL_CODE,
+       SUM(ATTYPE_AMOUNT_OC) QMSZ
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE, C.SEC_CODE_NAME,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN
+ (SELECT C_ZCDM,
+       C_ZCMC,
+       C_MGSZXS MGSZXS,
+       C_GSDM GSDM,
+       C_GSMC GQMC,
+       C_KSRQ QSRQ,
+       C_JSRQ DQRQ,
+       C_JYHTBH,C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_GSMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_MGSZ''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1055', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('7C867B99EDCB45D8B36F9A81D0CDD584', 'A00009', '±í2-3  ³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖµØÇøÇé¿ö', '--±í2-3 ³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖµØÇøÇé¿öÌî±¨ÒªÇó
+select line_id,
+       line_name1,
+       sum(loan_balance_amount) as loan_balance_amount
+        from  tp_gl_pb_head a left join TC_pf_Pb_LOAN_INFO b on a.matchup_id=b.location_code
+where   a.rep_id=''PB09'' 
+group by line_id,line_name1
+order by line_id                   ', '0', 0, 'A09', 0, null, 'weijunqi', '21-1ÔÂ -19 11.41.42.000000 ÉÏÎç', '³¬¼¶¹ÜÀíÔ±', '14-3ÔÂ -19 01.39.35.364000 ÉÏÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('EC47B58618974BF8848795C4DDF37E91', 'A00092', 'ÐÅÓÃÖ¤Í¶×ÊÃ÷Ï¸', 'SELECT  FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_JYHTBH,T3.C_JYHTMC,T1.QMSZ,
+        T3.ZRJK,T3.JYLL,T3.ZRRDM,T3.ZRRMC,T3.ZRRQ,T3.DQRQ,
+        CASE WHEN TRIM(RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       d.TA_PF_ID,
+       d.CPDM,
+       C.SYMBOL_CODE,
+       C.SEC_CODE_NAME,
+       SUM(ATTYPE_AMOUNT_OC) QMSZ
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE, C.SEC_CODE_NAME,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN 
+ (SELECT C_ZCDM,
+       C_ZCMC,
+       C_ZRJK          ZRJK,
+       C_JYLL          JYLL,
+       C_ZRRDM         ZRRDM,
+       C_ZRRMC         ZRRMC,
+       C_ZRRQ          ZRRQ,
+       C_JSRQ          DQRQ,
+       C_JYHTBH,C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_ZRRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_XYZT''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1056', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('C52302BF70B64A09A935E250ABDBE1DF', 'A00106', '²úÆ·µÄ×îÖÕÍ¶Ïò', 'SELECT  FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 1, 4) BGND,
+       ''3'' BGQJ,
+       CONCAT(SUBSTR(''${FENDDATE}'', 0, 6), ''01'') AS QCRQ,
+       ''${FENDDATE}'' QMRQ,
+        NVL(B.CPDM,a.PF_ID) CPDM,
+        LOWLEV_PF_ID XCCPDM,
+        LOWLEV_PF_NAME XCCPMC,
+        ASSET_NAME ZCMC,
+        ASSET_TYPE ZCFL,
+        CLAIMS_TYPE ZQFL,
+        AMOUNT JE,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+  FROM  TC_PF_FININVES_INFO a,V_PF_CPDM B
+  WHERE a.pf_id = B.TA_PF_ID AND BUSS_DATE = (SELECT MAX(BUSS_DATE) FROM TC_PF_FININVES_INFO WHERE BUSS_DATE <= ''${FENDDATE}'') 
+ AND B.PF_ID IS NOT NULL AND   a.pf_id   IS NOT NULL      ', '0', null, 'A3065', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('BD2B090ADB994FB5A0AC79373E452370', 'A00096', '³¡ÍâÔ¶ÆÚÍ¶×ÊÃ÷Ï¸', '--³¡ÍâÔ¶ÆÚÍ¶×ÊÃ÷Ï¸  ¿Õ±í
+SELECT '''' JGBH,
+       '''' BGND,
+       '''' BGQJ,
+       '''' QCRQ,
+       '''' QMRQ,
+       '''' CPDM,
+       '''' JYCSDM,
+       '''' JYBH,
+       '''' QSRQ,
+       '''' DQRQ,
+       '''' JSRQ,
+       '''' MMFX,
+       '''' MYBJ,
+       '''' MYSL,
+       '''' YQJG,
+       '''' BZJ,
+       '''' JSJG,
+       '''' JSZFJE,
+       '''' BDLX,
+       '''' BDDM,
+       '''' BDMC,
+       '''' BDJYCSDM,
+       '''' JZHB,
+       '''' FJZHB,
+       '''' JYDSFLX,
+       '''' JYDSFMC,
+       '''' JYDSFCPDM,
+       '''' JYDSFCPMC,
+       '''' SFGLJY,
+       '''' GLRYGLRDGX,
+       '''' BZ
+       ,'''' AS PF_ID
+  FROM DUAL
+ WHERE 1 = 2                    ', '0', null, 'A1060', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('D4201620A1624602B71A4E462466AC37', 'A00103', '°´ÍÁµØÊ¹ÓÃÐÔÖÊ·ÖÀàµÄ·¿µØ²úÍ¶×Ê×éºÏ', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 1, 4) BGND,
+       ''3'' BGQJ,
+       CONCAT(SUBSTR(''${FENDDATE}'', 0, 6), ''01'') AS QCRQ,
+       ''${FENDDATE}'' QMRQ,
+       NVL(b.CPDM,a.pf_id) CPDM,
+       SUM(CASE WHEN NATURE_OF_USAGE IN (''1'',''2'',''3'',''4'',''9'') THEN INVES_AMOUNT END) JEHZ,
+       SUM(CASE WHEN NATURE_OF_USAGE = ''1'' THEN INVES_AMOUNT END) PTZZ,
+       SUM(CASE WHEN NATURE_OF_USAGE = ''2'' THEN INVES_AMOUNT END) BZXZZ,
+       SUM(CASE WHEN NATURE_OF_USAGE = ''3'' THEN INVES_AMOUNT END) SY,
+       SUM(CASE WHEN NATURE_OF_USAGE = ''4'' THEN INVES_AMOUNT END) GY,
+       SUM(CASE WHEN NATURE_OF_USAGE = ''9'' THEN INVES_AMOUNT END) QT,
+       SUM(PROVIDING_FINANCING) FDCLTZJ,
+       '''' BZ
+       ,''1060000001'' AS PF_ID
+FROM tc_pf_landbuss_info a,V_PF_CPDM b 
+WHERE a.pf_id = B.TA_PF_ID AND b.PF_ID IS NOT NULL AND a.trade_date <= ''${FENDDATE}''
+GROUP BY b.CPDM,a.pf_id            ', '0', null, 'A3062', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('412FC1DD0A264752BC873F71572059A5', 'A00095', '³¡Íâ»¥»»Í¶×ÊÃ÷Ï¸', '--³¡Íâ»¥»»Í¶×ÊÃ÷Ï¸  ¿Õ±í
+SELECT '''' JGBH,
+       '''' BGND,
+       '''' BGQJ,
+       '''' QCRQ,
+       '''' QMRQ,
+       '''' CPDM,
+       '''' JYCSDM,
+       '''' JYBH,
+       '''' QSRQ,
+       '''' DQRQ,
+       '''' JSRQ,
+       '''' JYFLB,
+       '''' MYBJ,
+       '''' GDLL,
+       '''' CKLL,
+       '''' QCJG,
+       '''' GDJE,
+       '''' FDLL,
+       '''' QMJG,
+       '''' FDJE,
+       '''' JSZFJE,
+       '''' QMMYBJ,
+       '''' QMBZJ,
+       '''' QMJSZFJE,
+       '''' BDLX,
+       '''' BDDM,
+       '''' BDMC,
+       '''' BDJYCSDM,
+       '''' JYDSFLX,
+       '''' JYDSFMC,
+       '''' JYDSFCPDM,
+       '''' JYDSFCPMC,
+       '''' SFGLJY,
+       '''' GLRYGLRDGX,
+       '''' BZ
+       ,'''' AS PF_ID
+  FROM DUAL
+ WHERE 1 = 2                    ', '0', null, 'A1059', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('3020BE15DC244A6BA2B859B19422BBC3', 'A00097', '»õ±ÒÊÐ³¡»ù½ð¼à¿Ø', '/*WITH TT_DATE AS
+ (SELECT MAX(BIZ_DATE) AS BIZ_DATE
+    FROM TC_DF_HOLIDAY
+   WHERE IS_HOLIDAY = ''1''
+     AND C_DATA_TYPE = ''CN''
+     AND BIZ_DATE <= ''${FENDDATE}'')*/
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) BGND,
+       ''1'' BGQJ,
+       ''${FENDDATE}'' QCRQ,
+       ''${FENDDATE}'' QMRQ,
+       A.CPDM,
+       NVL(A.TYCBFZCJZ, 0) TYCBFZCJZ,
+       NVL(A.YZDJZCJZ, 0) YZDJZCJZ,
+       NVL(A.YZDJZCJZPLJE, 0) YZDJZCJZPLJE,
+       NVL(A.YZDJZCJZPLD, 0) YZDJZCJZPLD,
+       NVL(A.CPTZZHPJSYQX, 0) CPTZZHPJSYQX,
+       NVL(A.CPTZZHPJSYCXQ, 0) CPTZZHPJSYCXQ,
+       NVL(ROUND(B.ATTYPE_AMOUNT_OC / A.TYCBFZCJZ, 6), 0) ZHGBL,
+       0 LCSBL,
+       '''' BZ
+       ,''1060000001'' AS PF_ID
+  FROM (SELECT A.PF_ID,
+               A.BIZ_DATE,
+               B.CPDM,
+               NVL(A.NV_COST,0)   AS     TYCBFZCJZ,
+               NVL(A.NV_MV,0)   AS          YZDJZCJZ,
+               NVL(A.NV_PLJE,0)  AS      YZDJZCJZPLJE,
+               NVL(A.NV_PLD,0)    AS     YZDJZCJZPLD,
+               NVL(A.NV_TZZHSYQX,0)   AS CPTZZHPJSYQX,
+               NVL(A.NV_TZZHPJSYCXQ,0) AS CPTZZHPJSYCXQ
+          FROM TC_PF_NAV_INFO A
+          LEFT JOIN V_PF_CPDM B
+            ON A.PF_ID = B.PF_ID
+          LEFT JOIN V_PF_BSC_INFO_ATTACHED C
+            ON B.TA_PF_ID = C.PF_ID
+         WHERE A.BIZ_DATE = ''${FENDDATE}''--IN (SELECT BIZ_DATE FROM TT_DATE)
+           AND C.CPLX = ''1''
+           AND C.GZFF = ''1''
+           AND A.PF_ID ${PFID}) A
+  LEFT JOIN (SELECT NVL(SUM(ATTYPE_AMOUNT_OC), 0) ATTYPE_AMOUNT_OC,
+                    PF_ID,
+                    BIZ_DATE
+               FROM TC_HP_PB_DOM_INFO
+              WHERE BIZ_DATE = ''${FENDDATE}''--IN (SELECT BIZ_DATE FROM TT_DATE)
+                AND C_DV_KM_CLS = ''KC_FZ''
+                AND C_DAI_CODE = ''MCHGJRZC''
+              GROUP BY PF_ID, BIZ_DATE) B
+    ON A.PF_ID = B.PF_ID
+   AND A.BIZ_DATE = B.BIZ_DATE
+ ORDER BY A.CPDM, A.BIZ_DATE                        ', '0', null, 'A1066', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('67B4959E594F47A1B72381274CE1BA18', 'A00023', '±í2-3  ³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖµØÇøÇé¿ö', '--±í2-3 ³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖµØÇøÇé¿öÌî±¨ÒªÇó
+select line_id,
+       line_name1,
+       sum(loan_balance_amount) as loan_balance_amount
+        from  tp_gl_pb_head a left join TC_pf_Pb_LOAN_INFO b on a.matchup_id=b.location_code
+where   a.rep_id=''PB09'' 
+group by line_id,line_name1
+order by line_id                                      ', '1', 0, 'A09', 0, null, 'weijunqi', '21-1ÔÂ -19 11.41.42.000000 ÉÏÎç', '³¬¼¶¹ÜÀíÔ±', '14-3ÔÂ -19 01.39.35.364000 ÉÏÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('28c0bc9e-f4ed-470b-9bdf-0d1e6621c996', 'A00038', '10.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·ÈÚ×ÊÀàÏîÄ¿ÑÓ¸¶±¾Ï¢Çé¿ö±í£¨ÔÂ¶È£©', 'select  t.*  from TS_PBOC_SFTI_DEFERPRINPALTREST t', '0', null, 'A23', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.17.13.226000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('609fd520-9dd2-4948-a35d-467ac1bb4371', 'A00039', '11.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·³ÖÓÐÎ¥Ô¼Õ®È¯Çé¿ö±í£¨ÔÂ¶È£©', 'select  t.*  from  TS_PBOC_SFTI_HOLDDEFAULTEDBOND  t', '0', null, 'A25', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.17.48.129000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('f44ec3a6-c687-4042-8dbc-8b5d8c25aff7', 'A00029', '1.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹ÜÒµÎñÔËÐÐÔÂ±¨±í£¨ÔÂ¶È£©', 'select t.* from TS_PBOC_SFTI_BUSINESSOPERATION t', '0', null, 'A15', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.05.36.300000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('d95393c2-1667-4e2e-9429-596c91b81045', 'A00030', '2.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·Õ®È¯ÒµÎñÔÂ±¨±í£¨ÔÂ¶È£©', 'select  t.* from  TS_PBOC_SFTI_BONDBUSINESS t', '0', null, 'A16', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.07.12.315000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('40562d3a-0402-4afb-bbf5-0ef8ab23f79e', 'A00031', '3.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·Í¶×Ê¹ÉÆ±ÖÊÑº»ã×Ü±í£¨ÔÂ¶È£©', 'select t.* from TS_PBOC_SFTI_SUMINVESTMENTPLED t', '0', null, 'A17', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.10.11.855000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('d2cead71-0bab-44cb-88be-cbe8b6241131', 'A00032', '4.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·Í¶×Ê¹ÉÆ±ÖÊÑºÇé¿ö±í£¨ÔÂ¶È£©', 'select  t.* from TS_PBOC_SFTI_INVESTMENTPLEDGE t', '0', null, 'A18', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.10.57.948000 ÏÂÎç', '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.11.27.302000 ÏÂÎç', 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('744a84ba-bdd2-4f41-a9c1-53bd9759354d', 'A00033', '5.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·Í¶×ÊÈÈµã³ÇÊÐµØ²úÏîÄ¿Í³¼Æ±í£¨ÔÂ¶È£©', 'select   t.*  from TS_PBOC_SFTI_HOTCITYREALESTATE t', '0', null, 'A19', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.12.27.800000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('0e2b56a9-d20b-404b-8c66-590033bd7267', 'A00034', '6.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·ÈÚ×ÊÀàÒµÎñÇé¿ö±í£¨¼¾¶È£©', 'select t.*  from TS_PBOC_SFTI_FINANCINGBUSINESS t', '0', null, 'A20', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.13.23.856000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('4ec1dc9a-46c5-4084-9798-58ebef5a179e', 'A00035', '7.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·²ÎÓë¹ÉÆ±¶¨ÔöÇé¿ö±í£¨¼¾¶È£©', 'select  t.*  from TS_PBOC_SFTI_STOCKPLACEMENT t', '0', null, 'A21', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.14.20.042000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('897b7645-f0ae-45ca-966b-8669d320d5de', 'A00036', '8.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹ÜÒµÎñÊÕÈë±í£¨¼¾¶È£©', 'select  t.*  from TS_PBOC_SFTI_BUSINESSINCOME t', '0', null, 'A22', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.15.05.561000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('234b66ef-e04c-4785-ac75-ddadb8497444', 'A00037', '9.Ö¤È¯ÆÚ»õ¾­Óª»ú¹¹×Ê¹Ü²úÆ·ÊÕÈë·ÑÓÃÇé¿ö±í£¨°ëÄê¶È£©', 'select  t.*  from  TS_PBOC_SFTI_INCOMEEXPENSES t', '0', null, 'A23', null, null, '³¬¼¶¹ÜÀíÔ±', '08-4ÔÂ -19 02.15.41.921000 ÏÂÎç', null, null, 'A0000901', 'A0000203');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('FF7919D0BDBB408094B285841C35154D', 'A00083', 'Î¯ÍÐ´û¿îÍ¶×ÊÃ÷Ï¸', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_JYHTBH HTBH,
+        T3.C_JYHTMC HTMC,
+        T1.QMJE,
+        T3.C_STRDM STRDM,
+        T3.C_STRMC STRMC,
+        T3.C_JKRDM JKRDM,
+        T3.C_JKRMC JKRMC,
+        T3.C_JKYT JKYT,
+        T3.C_JYLL LL,
+        T3.C_KSRQ QSRQ,
+        T3.C_JSRQ DQRQ,
+        CASE WHEN TRIM(T3.RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(T3.RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       C.SYMBOL_CODE,
+       d.TA_PF_ID,
+       d.CPDM,
+       SUM(ATTYPE_AMOUNT_OC) QMJE
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN
+ (SELECT C_ZCDM,C_ZCMC,
+       C_STRDM,
+       C_STRMC,
+       C_JKRDM,
+       C_JKRMC,
+       C_JKYT,
+       C_JYLL,
+       C_KSRQ,
+       C_JSRQ,
+       C_JYHTBH,
+       C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_JKRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_WTDK''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1047', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('4667A5122403495C8A6793ACB8E2019F', 'A00089', 'Æ±¾ÝÍ¶×ÊÃ÷Ï¸', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_JYHTBH,T3.C_JYHTMC,T1.QMSZ,
+        T3.C_PJZL,T3.C_ZRJK,T3.C_JYLL,T3.C_ZRRDM,T3.C_ZRRMC,T3.C_ZRRQ,T3.C_DQRQ,
+        CASE WHEN TRIM(RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       d.TA_PF_ID,
+       d.CPDM,
+       C.SYMBOL_CODE,
+       SUM(ATTYPE_AMOUNT_OC) QMSZ
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE, C.SEC_CODE_NAME,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN 
+ (SELECT C_ZCDM,C_ZCMC,
+       C_PJZL,
+       C_ZRJK,
+       C_JYLL,
+       C_ZRRDM,
+       C_ZRRMC,
+       C_ZRRQ,
+       C_JSRQ C_DQRQ,
+       C_JYHTBH,C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_ZRRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_PJTZ''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1053', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('85e00cad-7df9-4a1f-9501-afd29cb7ef9e', 'A1111', 'Ä¼¼¯Óà¶îÃ÷Ï¸', '<CLOB>', '2', null, 'A06', null, 'Ä¼¼¯ÐÅÏ¢', '³¬¼¶¹ÜÀíÔ±', '28-8ÔÂ -19 05.25.35.398000 ÏÂÎç', '³¬¼¶¹ÜÀíÔ±', '28-8ÔÂ -19 05.50.55.654000 ÏÂÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('C9A4C561938E4E86AFBDE7B12C4EBD49', 'A00105', '²úÆ·¶à²ãÇ¶Ì×Í¶×Ê', 'SELECT  FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 1, 4) BGND,
+       ''3'' BGQJ,
+       CONCAT(SUBSTR(''${FENDDATE}'', 0, 6), ''01'') AS QCRQ,
+       ''${FENDDATE}'' QMRQ,
+        nvl(B.CPDM,a.cpdm) CPDM,
+        SCCPDM,
+        SCCPMC,
+        XCCPDM,
+        XCCPMC,
+        XCCPLB,
+        XCCPGLRDM,
+        XCCPGLRMC,
+        ATTYPE_QTY CYFS,
+        ROUND(ATTYPE_AMOUNT_OC,8) CYSZ,
+        CASE WHEN XCCPZFS IS NOT NULL OR XCCPZFS <> ''0'' THEN ROUND(ATTYPE_AMOUNT_OC/XCCPZFS,6) END CYBL,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+  FROM tc_pf_multiinv_info a, V_PF_CPDM B,
+  (SELECT PF_ID,Regexp_substr(symbol_code,''[^ ]+'',1,1) symbol_code,SUM(ATTYPE_QTY) ATTYPE_QTY,SUM(ATTYPE_AMOUNT_OC) ATTYPE_AMOUNT_OC 
+   FROM TC_HP_PB_DOM_INFO WHERE C_DV_KM_CLS = ''KC_ZC'' AND C_DAI_CODE = ''ZQTZ_CB'' AND BIZ_DATE = ''${FENDDATE}''
+   GROUP BY PF_ID,symbol_code) C
+  WHERE a.CPDM = B.TA_PF_ID AND a.xccpdm = C.symbol_code AND B.PF_ID = C.PF_ID
+  AND YWDATE = (SELECT MAX(YWDATE) FROM TC_PF_FININVES_INFO WHERE YWDATE <= ''${FENDDATE}'') 
+  AND B.PF_ID IS NOT NULL                  ', '0', null, 'A3064', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', '³¬¼¶¹ÜÀíÔ±', '12-6ÔÂ -19 01.39.19.530000 ÏÂÎç', 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('B1791EE1911B47B5B8FA1240E306F0AD', 'A00043', '»ù½ð¾­ÀíÐÅÏ¢', '
+/*
+1¡¢?Í¬Ò»²úÆ·ÏÂÉè¶à¸öÏÂÊô²úÆ·/·Ý¶îÀà±ðÊ±£¬°´ÕÕ²úÆ·Ö÷´úÂë±¨ËÍ¡£
+2¡¢?Ê×ÈÎ»ù½ð¾­Àí/Í¶×Ê¾­Àí£¬Æä¡°ÈÎÖ°ÈÕÆÚ¡±°´ÕÕ²úÆ·ºÏÍ¬ÉúÐ§ÈÕÆÚ/²úÆ·³ÉÁ¢ÈÕÆÚÌîÐ´£¬¡°ÀëÈÎÈÕÆÚ¡±Îª¸ù¾Ý¹«Ë¾¾ö¶¨È·¶¨µÄ½âÆ¸ÈÕÆÚ£»·ÇÊ×ÈÎ»ù½ð¾­Àí/Í¶×Ê¾­Àí£¬¡°ÈÎÖ°ÈÕÆÚ¡±ºÍ¡°ÀëÈÎÈÕÆÚ¡±·Ö±ðÖ¸¸ù¾Ý¹«Ë¾¾ö¶¨È·¶¨µÄÆ¸ÈÎÈÕÆÚºÍ½âÆ¸ÈÕÆÚ¡£
+3¡¢?»ù½ð¾­Àí/Í¶×Ê¾­ÀíÈÎÖ°ÈÕÆÚ/ÀëÈÎÈÕÆÚºó5¸ö½»Ò×ÈÕ£¨º¬£©ÄÚ±¨ËÍ¡£
+Ê×´ÎÈ«Á¿±¨ËÍ´æÐøµÄ²úÆ·£¬±¨ËÍÔÚÈÎµÄ»ù½ð¾­Àí/Í¶×Ê¾­Àí¡£
+
+*/
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,--»ú¹¹±àºÅ
+   SUBSTR(''${FENDDATE}'', 1, 4) BGND,--±¨¸æÄê¶È
+   ''1'' BGQJ,--±¨¸æÆÚ¼ä
+   ''${FENDDATE}'' QCRQ,--ÆÚ³õÈÕÆÚ
+   ''${FENDDATE}'' QMRQ,--ÆÚÄ©ÈÕÆÚ
+   C.CPDM CPDM,--²úÆ·´úÂë
+   CARD_TYPE ZJLX,--Ö¤¼þÀàÐÍ
+   CARD_NO ZJHM,--Ö¤¼þºÅÂë
+   NAME XM,--ÐÕÃû
+   OFFICE_DATE RZRQ,--ÈÎÖ°ÈÕÆÚ
+   NVL(LEAVE_DATE,''-'') LRRQ,--ÀëÈÎÈÕÆÚ
+   NOTICE_DATE GGRQ,--¹«¸æÈÕÆÚ
+   REMARK BZ--±¸×¢
+      ,C.PF_ID
+    --,''1060000001'' as PF_ID
+FROM TC_PF_BSC_INFO A
+INNER JOIN  V_PF_CPDM C ON A.PF_ID = C.TA_PF_ID
+INNER JOIN  TC_PF_FUNDMANAGER_INFO B ON C.CPDM = B.PF_ID
+WHERE C.PF_ID IS NOT NULL
+AND A.PF_SETUP_DATE <= ''${FENDDATE}''
+AND A.PF_REAL_END_DATE >= ''${FENDDATE}''
+AND (B.OFFICE_DATE = ''${FENDDATE}''  OR B.LEAVE_DATE = ''${FENDDATE}'')
+ORDER BY C.CPDM, B.CARD_TYPE, B.CARD_NO, B.NAME, B.OFFICE_DATE, B.LEAVE_DATE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A1004', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('7E35BC47673F4DC7884FEF99CDBA0845', 'A00008', '±í2-2  ×Ê¹Ü²úÆ·³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖÐÐÒµ¡¢ÆóÒµ¹æÄ£Í³¼Æ', '--±í2-2 ×Ê¹Ü²úÆ·³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖÐÐÒµ¡¢ÆóÒµ¹æÄ£Çé¿öÌî±¨ÒªÇó
+select line_id,
+       line_name1,
+       sum(case when company_size=''CS01'' then loan_balance_amount end) as CS01_amount,--´óÐÍ
+       sum(case when company_size=''CS02'' then loan_balance_amount end) as CS02_amount,--ÖÐÐÍ
+       sum(case when company_size=''CS03'' then loan_balance_amount end) as CS03_amount,--Ð¡ÐÍ
+       sum(case when company_size=''CS04'' then loan_balance_amount end) as CS04_amount,--Î¢ÐÍ
+       sum(case when company_size=''CS05'' then loan_balance_amount end) as CS05_amount,--ÆäËû
+       sum(loan_balance_amount) as hj
+        from  tp_gl_pb_head a left join TC_pf_Pb_LOAN_INFO b on a.matchup_id=b.field_info
+where   a.rep_id=''PB08'' 
+group by line_id,line_name1
+order by line_id                                             ', '0', 0, 'A08', 0, null, 'weijunqi', '21-1ÔÂ -19 11.41.42.000000 ÉÏÎç', '³¬¼¶¹ÜÀíÔ±', '14-3ÔÂ -19 01.39.07.927000 ÉÏÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('1A2654D1E30E4562834E38B4D1D90E6E', 'A00010', '±í2-4  ×Ê²úÊÕÒæÈ¨°´»ù´¡×Ê²úÍ¶ÏòÇé¿ö', '--±í2-4 ×Ê²úÊÕÒæÈ¨°´»ù´¡×Ê²úÍ¶ÏòÇé¿öÌî±¨ÒªÇó
+select line_id,
+       line_name1,
+       case when substr(line_name2,1,1)='' '' then ''ÌØ¶¨Ä¿µÄÔØÌå'' else line_name2 end as line_name2,
+       sum(mv_amount) as mv_amount1,  -- "´û¿îÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount2,  -- "Õ®ÎñÖ¤È¯ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount3,  -- "Ó¦ÊÕÕË¿îÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount4,  -- "ÆäËûÕ®È¨ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount5,  -- "¹ÉÆ±ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount6,  -- "ÆäËû¹ÉÈ¨ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount7,  -- "ÎïÈ¨×Ê²úÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount8  -- ×Ü¼Æ
+        from  tp_gl_pb_head a left join tc_pf_Pb_transfer_info b on a.matchup_id=b.AtType_ID_D
+where   a.rep_id=''PB10'' 
+group by line_id,line_name1,case when substr(line_name2,1,1)='' '' then ''ÌØ¶¨Ä¿µÄÔØÌå'' else line_name2 end
+order by line_id                                                                              ', '0', 0, 'A10', 0, '111', 'weijunqi', '21-1ÔÂ -19 11.41.42.000000 ÉÏÎç', '³¬¼¶¹ÜÀíÔ±', '25-3ÔÂ -19 09.16.56.951000 ÏÂÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('2B99CA5F3F514EE5A98A30D33BCF190B', 'A00094', '³¡ÍâÆÚÈ¨Í¶×ÊÃ÷Ï¸', '--³¡ÍâÆÚÈ¨Í¶×ÊÃ÷Ï¸  ¿Õ±í
+SELECT '''' JGBH,
+       '''' BGND,
+       '''' BGQJ,
+       '''' QCRQ,
+       '''' QMRQ,
+       '''' CPDM,
+       '''' JYCSDM,
+       '''' JYBH,
+       '''' QSRQ,
+       '''' DQRQ,
+       '''' JSRQ,
+       '''' MMFX,
+       '''' QQFX,
+       '''' XQFS,
+       '''' MYBJ,
+       '''' MYSL,
+       '''' XQJG,
+       '''' QQF,
+       '''' QQFZFRQ,
+       '''' JSJG,
+       '''' JSZFJE,
+       '''' QMMYBJ,
+       '''' QMMYSL,
+       '''' QMBZJ,
+       '''' QMJSZFJE,
+       '''' BDLX,
+       '''' BDDM,
+       '''' BDMC,
+       '''' BDJYCSDM,
+       '''' JZHB,
+       '''' FJZHB,
+       '''' JYDSFLX,
+       '''' JYDSFMC,
+       '''' JYDSFCPDM,
+       '''' JYDSFCPMC,
+       '''' SFGLJY,
+       '''' GLRYGLRDGX,
+       '''' BZ
+       ,'''' AS PF_ID
+  FROM DUAL
+ WHERE 1 = 2                    ', '0', null, 'A1058', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('0571DF41B2A54358BCEEB837FDF44281', 'A00086', 'ÈÚÈ¯Í¶×ÊÃ÷Ï¸', '
+--ÈÚÈ¯Í¶×ÊÃ÷Ï¸
+
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') AS JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' as QCRQ,
+       ''${FENDDATE}'' as QMRQ,
+       NVL(CP.CPDM, '''') AS CPDM,
+       JYCSDM,
+       C_IDEN AS DJHM,
+       BIZ_DATE AS KCRQ,
+       C_SEC_CODE AS ZQDM,
+       ZQLB,
+       N_TD_MONEY AS CJJG,
+       KCSL,
+       N_TD_MONEY + N_YSPL_JYYJ AS RQJE,
+       N_JYFY AS RQFY,
+       CHSL,
+       KCSL - CHSL AS QMSL,
+       D_SETT_FACT AS CDDQRQ,
+       NULL AS BZ
+       ,''1060000001'' AS PF_ID
+  FROM (SELECT PF_ID,
+               C_SEC_CODE,
+               GET_CODE(''C_MKT_CODE'', C_MKT_CODE) AS JYCSDM,
+               BIZ_DATE,
+               C_IDEN,
+               CASE
+                 WHEN C_DT_CODE = ''ZRT_ZQSH'' THEN
+                  N_TD_AMOUNT
+                 ELSE
+                  0
+               END AS CHSL,
+               CASE
+                 WHEN C_DT_CODE = ''ZRT_ZQSQ'' THEN
+                  N_TD_AMOUNT
+                 ELSE
+                  0
+               END AS KCSL,
+               N_TD_AMOUNT,
+               N_TD_MONEY,
+               N_YSPL_JYYJ,
+               N_JYFY,
+               D_SETT_FACT
+          FROM TC_TD_PB_DOM_INFO
+         WHERE C_DT_CODE IN (''ZRT_ZQSQ'', ''ZRT_ZQSH'')
+           AND PF_ID ${PFID}
+           AND ''${FENDDATE}'' BETWEEN BIZ_DATE AND D_SETT_FACT) A
+  LEFT JOIN (SELECT ZQDM,
+                    SSSC,
+                    ZQLB
+               FROM TC_MK_ZQINFO
+              GROUP BY ZQDM, SSSC, ZQLB) B
+    ON ZQDM = C_SEC_CODE
+   AND SSSC = JYCSDM
+LEFT JOIN v_pf_cpdm CP ON A.pf_id = CP.TA_PF_ID            ', '0', null, 'A1050', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('91B146D1CA0C4119A3FCA7A8E14D262B', 'A00102', '°´Í¶Ïò·ÖÀàµÄ·Ç±êÍ¶×Ê×éºÏ', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''3'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(d.CPDM,d.TA_PF_ID) CPDM,
+        NVL(e.c_txfl,''99'') c_txfl,
+       SUM(ATTYPE_AMOUNT_OC) QMSZ,
+       '''' BZ
+       ,''1060000001'' AS PF_ID
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d,TC_SE_PB_DOM_INFO e
+ WHERE c.pf_id = d.PF_ID AND REGEXP_SUBSTR(c.SYMBOL_CODE, ''[^ ]+'', 1, 1) = e.C_ZCDM AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id IS NOT NULL 
+   AND 1=2
+ GROUP BY d.CPDM,d.TA_PF_ID,e.c_txfl            ', '0', null, 'A3061', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('FC9F97CA60F04FE5B868C449AF483540', 'A00084', 'ÐÅÍÐ´û¿îÍ¶×ÊÃ÷Ï¸', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_ZCDM JHDM,
+        T3.C_ZCMC JHMC,
+        T1.QMSL,
+        T1.QMJE,
+        T3.C_JHLX JHLX,
+        T3.C_STRDM STRDM,
+        T3.C_STRMC STRMC,
+        T3.C_JKRDM JKRDM,
+        T3.C_JKRMC JKRMC,
+        T3.C_JKYT JKYT,
+        T3.C_MZ MZ,
+        T3.C_JYLL YQSYL,
+        T3.C_KSRQ QSRQ,
+        T3.C_JSRQ DQRQ,
+        CASE WHEN TRIM(T3.RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(T3.RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       C.SYMBOL_CODE,
+       d.TA_PF_ID,
+       d.CPDM,
+       SUM(ATTYPE_QTY) QMSL,
+       SUM(ATTYPE_AMOUNT_OC) QMJE
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE,d.TA_PF_ID,d.CPDM) T1
+ INNER JOIN
+ (SELECT C_ZCDM,C_ZCMC,
+       C_JHLX,
+       C_STRDM,
+       C_STRMC,
+       C_JKRDM,
+       C_JKRMC,
+       C_JKYT,
+       C_MZ,
+       C_JYLL,
+       C_KSRQ,
+       C_JSRQ,
+       C_JYHTBH,
+       C_JYHTMC,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_JKRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_XTDK''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1048', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('A01BF4067A104452AFB5E7CAD94D5DD3', 'A00104', '°´ÇøÓò·ÖÀàµÄ·¿µØ²úÍ¶×Ê×éºÏ', '
+--°´ÇøÓò·ÖÀàµÄ·¿µØ²úÍ¶×Ê×éºÏ
+
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''3'' BGQJ,
+       CONCAT(SUBSTR(''${FENDDATE}'', 0, 6), ''01'') AS QCRQ,
+       ''${FENDDATE}'' QMRQ,
+       NVL(b.CPDM,a.pf_id) CPDM,
+       NATURE_OF_USAGE TDSYXZ,
+       CITY CS,
+       INVES_AMOUNT JE,
+       '''' BZ
+       ,''1060000001'' AS PF_ID
+FROM tc_pf_landbuss_info a,V_PF_CPDM B
+WHERE a.pf_id = B.TA_PF_ID AND B.PF_ID IS NOT NULL AND a.trade_date <= ''${FENDDATE}''                                      ', '0', null, 'A3063', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('4A26BF8EB64844D2BE1D7389002B0C4A', 'A00022', '±í2-2  ×Ê¹Ü²úÆ·³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖÐÐÒµ¡¢ÆóÒµ¹æÄ£Í³¼Æ', '--±í2-2 ×Ê¹Ü²úÆ·³ý»Ø¹ººÍ²ð½èÍâ´û¿î·ÖÐÐÒµ¡¢ÆóÒµ¹æÄ£Çé¿öÌî±¨ÒªÇó
+select line_id,
+       line_name1,
+       sum(case when company_size=''CS01'' then loan_balance_amount end) as CS01_amount,--´óÐÍ
+       sum(case when company_size=''CS02'' then loan_balance_amount end) as CS02_amount,--ÖÐÐÍ
+       sum(case when company_size=''CS03'' then loan_balance_amount end) as CS03_amount,--Ð¡ÐÍ
+       sum(case when company_size=''CS04'' then loan_balance_amount end) as CS04_amount,--Î¢ÐÍ
+       sum(case when company_size=''CS05'' then loan_balance_amount end) as CS05_amount,--ÆäËû
+       sum(loan_balance_amount) as hj
+        from  tp_gl_pb_head a left join TC_pf_Pb_LOAN_INFO b on a.matchup_id=b.field_info
+where   a.rep_id=''PB08'' 
+group by line_id,line_name1
+order by line_id                                                                                   ', '1', 0, 'A08', 0, null, 'weijunqi', '21-1ÔÂ -19 11.41.42.000000 ÉÏÎç', '³¬¼¶¹ÜÀíÔ±', '14-3ÔÂ -19 01.39.07.927000 ÉÏÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('82BD6138CF01465DA3ED96BA1E1235BF', 'A00024', '±í2-4  ×Ê²úÊÕÒæÈ¨°´»ù´¡×Ê²úÍ¶ÏòÇé¿ö', '--±í2-4 ×Ê²úÊÕÒæÈ¨°´»ù´¡×Ê²úÍ¶ÏòÇé¿öÌî±¨ÒªÇó
+select line_id,
+       line_name1,
+       case when substr(line_name2,1,1)='' '' then ''ÌØ¶¨Ä¿µÄÔØÌå'' else line_name2 end as line_name2,
+       sum(mv_amount) as mv_amount1,  -- "´û¿îÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount2,  -- "Õ®ÎñÖ¤È¯ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount3,  -- "Ó¦ÊÕÕË¿îÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount4,  -- "ÆäËûÕ®È¨ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount5,  -- "¹ÉÆ±ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount6,  -- "ÆäËû¹ÉÈ¨ÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount7,  -- "ÎïÈ¨×Ê²úÊÕÒæÈ¨"
+       sum(mv_amount) as mv_amount8  -- ×Ü¼Æ
+        from  tp_gl_pb_head a left join tc_pf_Pb_transfer_info b on a.matchup_id=b.AtType_ID_D
+where   a.rep_id=''PB10'' 
+group by line_id,line_name1,case when substr(line_name2,1,1)='' '' then ''ÌØ¶¨Ä¿µÄÔØÌå'' else line_name2 end
+order by line_id                                                                                                                                                            ', '1', 0, 'A10', 0, null, 'weijunqi', '21-1ÔÂ -19 11.41.42.000000 ÉÏÎç', '³¬¼¶¹ÜÀíÔ±', '14-3ÔÂ -19 01.39.48.745000 ÉÏÎç', 'A0000901', 'A0000201');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('53EABAE4161F4AF7A610F1ED772BC4BE', 'A00067', '¶¨ÆÚ´æ¿îÍ¶×ÊÃ÷Ï¸', '
+-- ¶¨ÆÚ´æ¿îÍ¶×ÊÃ÷Ï¸
+-- ÒøÐÐ´úÂëÐèÒª´Ó½ðÈÚ»ú¹¹ÐÅÏ¢±íTC_MK_JRJGXXÖÐÈ¡Êý
+-- ÒøÐÐ¾»×Ê²úÐèÒª´ÓÒøÐÐ¾»×Ê²ú±íTC_MK_YHJZCBÖÐÈ¡Êý
+
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+       NVL(B.CPDM, '''') AS CPDM,
+       A.C_IDEN AS CKBH,
+       A.N_TD_MONEY AS QMJE,
+       CASE
+         WHEN A.C_SEC_VAR_CODE_SUB = ''CK_DQ'' THEN
+          ''1''
+         WHEN A.C_SEC_VAR_CODE_SUB = ''CK_XY'' THEN
+          ''2''
+         WHEN A.C_SEC_VAR_CODE_SUB = ''CK_TZ'' THEN
+          ''3''
+       END AS CKLB,
+       NVL(A.BIZ_DATE, '''') AS QXRQ,
+       NVL(A.D_SETT_FACT, '''') AS DQRQ,
+       NVL(FLOOR(TO_DATE(A.D_SETT_FACT, ''YYYYMMDD'') -
+                 TO_DATE(A.BIZ_DATE, ''YYYYMMDD'') + 1),
+           0) AS CKTS,
+       NVL(ROUND(A.N_HG_RATE/100,6), 0) AS CKLL,
+       NVL(C.SGXYDM, '''') AS YHDM,
+       NVL(A.C_ORG_NAME, '''') AS YHMC,
+       NVL(D.N_JZCE, 0) AS YHJZC,
+       NULL AS BZ
+       ,''1060000001'' AS PF_ID
+  FROM TC_TD_PB_DOM_INFO A
+  LEFT JOIN V_PF_CPDM B
+    ON B.PF_ID = A.PF_ID
+  LEFT JOIN TC_MK_JRJGXX C
+    ON A.C_ORG_NAME = C.JRJGQC
+  LEFT JOIN TC_MK_YHJZCB D
+    ON A.C_ORG_NAME = D.C_YHMC
+ WHERE A.C_TD_TYPE = ''CKTZ''
+   AND A.C_DV_TYPE_SUB = ''CKTZ_SQ''
+   AND A.C_SEC_VAR_CODE = ''CK''
+   AND A.C_SEC_VAR_CODE_SUB IN (''CK_DQ'', ''CK_XY'', ''CK_TZ'')
+   AND A.BIZ_DATE <= ''${FENDDATE}''
+   AND A.D_SETT_FACT > ''${FENDDATE}''
+   AND A.PF_ID ${PFID}                                                                                                ', '0', null, 'A1031', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('55CBB66631CB4A1D863C5E6197775F0E', 'A00082', '»ù´¡×Ê²úÊÕ£¨ÊÜ£©ÒæÈ¨Í¶×ÊÃ÷Ï¸', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' AS QCRQ,
+       ''${FENDDATE}'' AS QMRQ,
+        NVL(T1.CPDM,T1.TA_PF_ID) CPDM,
+        T3.C_ZCMC ZCSYQMC,
+        T2.ZJJE,T2.TCJE,T1.QMJE,T3.C_YSQYRDM,T3.C_YSQYRMC,T3.C_ZCSYQLB,T3.C_KSRQ,T3.C_JSRQ,
+        CASE WHEN TRIM(RELATED_PARTY) IS NOT NULL THEN ''1'' ELSE ''0'' END SFGLJY,
+        TRIM(RELATED_PARTY) GLRYGLRDGX,
+        '''' BZ
+        ,''1060000001'' AS PF_ID
+FROM (SELECT c.PF_ID,
+       C.SYMBOL_CODE,
+       d.TA_PF_ID,
+       d.CPDM,
+       SUM(ATTYPE_AMOUNT_OC) QMJE
+  FROM TC_HP_PB_DOM_INFO C,v_pf_cpdm d
+ WHERE c.pf_id = d.PF_ID AND C.BIZ_DATE = ''${FENDDATE}''
+   AND C.C_DAI_CODE = ''ZQTZ_CB'' AND c.pf_id ${PFID}
+ GROUP BY c.PF_ID, C.SYMBOL_CODE,d.TA_PF_ID,d.CPDM) T1
+ LEFT JOIN
+ (SELECT D.PF_ID,
+       D.C_SEC_CODE,
+       d.c_sec_name,
+       SUM(CASE WHEN C_DT_CODE = ''JJJY_BUY'' THEN D.N_TD_MONEY END) ZJJE,
+       SUM(CASE WHEN C_DT_CODE <> ''JJJY_BUY'' THEN D.N_TD_MONEY END) TCJE
+  FROM TC_TD_PB_DOM_INFO D
+ WHERE D.BIZ_DATE = ''${FENDDATE}''
+  AND D.C_TD_TYPE = ''JJJY''    
+ GROUP BY D.PF_ID, D.C_SEC_CODE,d.c_sec_name) T2 ON T1.PF_ID = T2.PF_ID AND T1.SYMBOL_CODE = T2.C_SEC_CODE
+ INNER JOIN
+ (SELECT C_ZCDM,C_ZCMC,
+       C_KSRQ,
+       C_JSRQ,
+       C_YSQYRDM,
+       C_YSQYRMC,
+       C_ZCSYQLB,
+       B.RELATED_PARTY
+  FROM TC_SE_PB_DOM_INFO A
+  LEFT JOIN TC_PF_RELATED_PARTY B
+    ON A.C_YSQYRMC = B.RELATED_PARTY_NAME
+   AND B.RELATED_PARTY_TYPE = ''1''
+ WHERE A.C_ZCPZLX = ''NS_JCZCSYQ''
+   AND A.C_KSRQ <= ''${FENDDATE}''
+   AND A.C_JSRQ >= ''${FENDDATE}'') T3 ON REGEXP_SUBSTR(T1.SYMBOL_CODE, ''[^ ]+'', 1, 1) = T3.C_ZCDM      ', '0', null, 'A1046', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('5315E1E97A7E4FA2B1903AE88F6C1C8A', 'A00098', 'ÉæËßÇé¿ö', 'SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) BGND,
+       ''1'' BGQJ,
+       ''${FENDDATE}'' QCRQ,
+       ''${FENDDATE}'' QMRQ,
+       NVL(B.CPDM,A.CPDM) CPDM,
+       NVL(SSJE, 0) SSJE,
+       NVL(PFJE, 0) PFJE,
+       NVL(SSQKSM, '''') SSQKSM,
+       NVL(BZ, '''') BZ
+       ,''1060000001'' AS PF_ID
+  FROM TC_PF_LITIGATION_SITN A
+ INNER JOIN V_PF_CPDM B
+    ON A.CPDM = B.TA_PF_ID
+ WHERE A.FSRQ = ''${FENDDATE}''
+   AND B.PF_ID ${PFID}      ', '0', null, 'A1067', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
+values ('D659D7C4813B416B9EC399236E83DF5E', 'A00085', 'ÈÚ×ÊÍ¶×ÊÃ÷Ï¸', '
+--ÈÚ×ÊÍ¶×ÊÃ÷Ï¸
+
+SELECT FU_GET_FISP_SJZD(''±¨ËÍ»ú¹¹±àºÅ'') AS JGBH,
+       SUBSTR(''${FENDDATE}'', 0, 4) AS BGND,
+       ''1'' AS BGQJ,
+       ''${FENDDATE}'' as QCRQ,
+       ''${FENDDATE}'' as QMRQ,
+       NVL(CP.CPDM, '''') AS CPDM,
+       JYCSDM,
+       BIZ_DATE AS KCRQ, /*C_TD_NUMBER µ¥¾ÝºÅÂë*/
+       '''' AS DJHM,
+       C_SEC_CODE AS ZQDM,
+       ZQLB,
+       N_TD_MONEY AS KCJE, /*N_TD_INCOME ¸½´øÊÕÒæ*/
+       '''' AS RZLX,
+       N_TD_MONEY + /*N_TD_INCOME ¸½´øÊÕÒæ*/
+       0 + /*N_TD_COMM ³¥»¹½ð¶î*/
+       0 AS CHJE,
+       N_TD_MONEY AS QMJE,
+       D_SETT_FACT AS CDDQRQ,
+       NULL AS BZ
+       ,''1060000001'' AS PF_ID
+  FROM (SELECT PF_ID,
+               C_SEC_CODE,
+               GET_CODE(''C_MKT_CODE'', C_MKT_CODE) AS JYCSDM,
+               BIZ_DATE,
+               /*C_TD_NUMBERµ¥¾ÝºÅÂë,*/
+               N_TD_MONEY /*,N_TD_INCOME ¸½´øÊÕÒæ*/, /*N_TD_COMM ³¥»¹½ð¶î,*/
+               D_SETT_FACT
+          FROM TC_TD_PB_DOM_INFO
+         WHERE C_DT_CODE = ''ZRT_ZJSQ''
+           AND PF_ID ${PFID}
+           AND ''${FENDDATE}'' BETWEEN BIZ_DATE AND D_SETT_FACT) A
+  LEFT JOIN (SELECT ZQDM,
+                    SSSC,
+                    ZQLB
+               FROM TC_MK_ZQINFO
+              GROUP BY ZQDM, SSSC, ZQLB) B
+    ON ZQDM = C_SEC_CODE
+   AND SSSC = JYCSDM
+LEFT JOIN v_pf_cpdm CP ON A.pf_id = CP.TA_PF_ID                                        ', '0', null, 'A1049', null, 'zjh', '³¬¼¶¹ÜÀíÔ±', '25-5ÔÂ -19 04.10.25.628000 ÏÂÎç', null, null, 'A0000901', 'A0000202');
+
+prompt Done.
