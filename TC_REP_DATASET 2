@@ -104,7 +104,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH, --机构编码
        NVL(JSSFS, 0) AS JSSFS, --净申赎份额
        --NVL(JSSJEZJJZCJZBL, 0) AS JSSJEZJJZCJZBL, --净申赎金额占基金资产净值比例
         NVL(round(JSSJEZJJZCJZBL,6),0) AS JSSJEZJJZCJZBL, --净申赎金额占基金资产净值比例
-   ', '0', null, 'A1020', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+   ', '0', null, 'A1020', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D64DA24199C84E16A7255B729D7669A2', 'A00061', '客户情况', '/*
@@ -199,7 +199,7 @@ WITH V_TR_DF_TA_ACCRECDATA AS
                  1 AS TZRS -- 投资者人数
             FROM (SELECT T1.TAACCOUNTID,
                          T1.PF_TYPE,
-               ', '0', null, 'A1025', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+               ', '0', null, 'A1025', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('BB99057A421F47AFA6950F9EDC4BA738', 'A00100', '利润表', '--利润表
@@ -294,7 +294,7 @@ SELECT T1.JGBH,
                     ELSE
                      0
                   END) OVER(PARTITION BY T2.PF_ID)
-             ', '0', null, 'A3015', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+             ', '0', null, 'A3015', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('DE7748F7CF92424AA2CCF32A5B19F996', 'A00080', '其他资管产品投资明细', '
@@ -381,7 +381,7 @@ SELECT FU_Get_FISP_SJZD(''报送机构编号'') AS JGBH,
                        )
     ON C_SECMKT_CODE = ZGCPDM
    AND MARKET_CODE = C_MKT_CODE
-   left join V_PF', '0', null, 'A1044', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+   left join V_PF', '0', null, 'A1044', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('079B22A9EFE146FDA47119BC12FA0D41', 'A00060', '前200大投资者', '
@@ -462,7 +462,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH, --机构编码
            AND T4.SRC_SYS = ''TA''
          INNER JOIN TC_PF_BSC_INFO T5
             ON T4.FIN_PF_ID = T5.PF_ID
-         INNER JOIN V_PF', '0', null, 'A1023', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+         INNER JOIN V_PF', '0', null, 'A1023', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0F3064B2334A4E0A95C9699E8BBCEEC9', 'A00050', '下属产品运行信息', '/*-- CREATE TABLE
@@ -582,7 +582,7 @@ SELECT T4.FUNDCODE,
              WHEN T4.FUNDSTATUS IN (''0'') THEN ''1'' -- 可认购
              WHEN T4.FUNDSTATUS IN (''1'',''7'') THEN ''3'' -- 可申购赎回
              WHEN T4.FUNDSTATUS IN (''3'') THEN ''4'' -- 可申购不可赎回
-             WHEN T4.FU', '0', null, 'A1011', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+             WHEN T4.FU', '0', null, 'A1011', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('FB0FE0C0691649148F89C09FD295DAF3', 'A00052', '产品收益分配信息', '-- 从估值系统获取收益分配信息
@@ -676,7 +676,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
    AND T1.BEN_SHARE > 0 
    AND T1.EQU_MONEY > 0
  ORDER BY T3.CPDM, T1.FZJJDM, T1.BIZ_DATE
-                                       ', '0', null, 'A1013', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                                       ', '0', null, 'A1013', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('5B424BB02455477A93A4550B6AB4BCD0', 'A00021', '表2-1资管产品资产负债情况', '--表2-1取数完整SQL 
@@ -730,7 +730,7 @@ WITH TT_PF AS
                  --NVL(B.NODE_NAME, ATTYPE_EXT_ID_NAME) AS ATTYPE_EXT_ID_NAME,
                  CASE WHEN A.CUR_D = ''CNY'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS RMB_AMOUNT_OC, --人民币
                  CASE WHEN A.CUR_D = ''USD'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS USD_AMOUNT_OC, --美元，
-                 CASE WHEN A.CUR_D = ''EUR'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS EUR_AMOUNT', '1', 0, 'A07', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '22-5月 -19 07.17.29.119000 下午', 'A0000901', 'A0000201');
+                 CASE WHEN A.CUR_D = ''EUR'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS EUR_AMOUNT', '1', 0, 'A07', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('DAA86656FB314C66962296683A400CF1', 'A00025', '表2-5  企业债券分行业、企业规模情况', '--表2-5大中小微完整取数SQL
@@ -784,7 +784,7 @@ SELECT A.LINE_ID,
               GROUP BY ROLLUP(CP_HY)) B
     ON TRIM(A.LINE_NAME1) = TRIM(B.CP_HY)
  WHERE A.REP_ID = ''PB11''
- ORDER BY A.LINE_ID                                                                      ', '1', 0, 'A11', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', 'weijunqi', '21-1月 -19 11.41.42.000000 上午', 'A0000901', 'A0000201');
+ ORDER BY A.LINE_ID                                                                      ', '1', 0, 'A11', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('F54240FE3564429DAA5A22AA4A390F1D', 'A00076', '商品期货投资明细', '
@@ -855,7 +855,7 @@ WHERE A.PF_ID ${PFID}
    AND A.C_SEC_VAR_CODE = ''QH''
    AND A.C_SEC_VAR_CODE_SUB IN (''QH_SP'')
    AND (A.N_CLOSE_TD_AMOUNT <> 0 OR A.N_OPEN_TD_AMOUNT <> 0 OR
-       A.N_STOCK_AMOUNT <> 0)              ', '0', null, 'A1040', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+       A.N_STOCK_AMOUNT <> 0)              ', '0', null, 'A1040', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0EFD456582A64F7CAC86E3EA4CE9E872', 'A00081', '未挂牌资产支持证券投资明细', '
@@ -936,7 +936,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
                     SUM(CASE
                           WHEN T2.N_FUND_WAY = 1 THEN
                            N_TD_MONEY
- ', '0', null, 'A1045', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ', '0', null, 'A1045', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('4049750F87F34DFD98F79CD295831CDD', 'A00079', '未上市股权投资明细', 'SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
@@ -1017,7 +1017,7 @@ FROM (SELECT c.PF_ID,
     ON A.C_GSMC = B.RELATED_PARTY_NAME
    AND A.C_ZCPZLX = ''NS_WSSGQ''
    AND A.C_KSRQ <= ''${FENDDATE}''
-   AND A.C_JSRQ >= ''${FENDDATE}''', '0', null, 'A1043', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+   AND A.C_JSRQ >= ''${FENDDATE}''', '0', null, 'A1043', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('9B5D216B892F48F3AA8D6A31FC591037', 'A00048', '下属产品成立信息', '/*
@@ -1122,7 +1122,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH, --机构编号
        END AS CWMJJE, --场外募集金额
        CASE
          WHEN T1.FUND_TYPE = ''9'' OR T3.SFNDHRJJ = ''1'' THEN
-      ', '0', null, 'A1009', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+      ', '0', null, 'A1009', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('DC3E49137B924CD983DC4F74F766F780', 'A00011', '表2-5  企业债券分行业、企业规模情况', '--表2-5大中小微完整取数SQL
@@ -1176,7 +1176,7 @@ SELECT A.LINE_ID,
               GROUP BY ROLLUP(CP_HY)) B
     ON TRIM(A.LINE_NAME1) = TRIM(B.CP_HY)
  WHERE A.REP_ID = ''PB11''
- ORDER BY A.LINE_ID                                                                      ', '0', 0, 'A11', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', 'weijunqi', '21-1月 -19 11.41.42.000000 上午', 'A0000901', 'A0000201');
+ ORDER BY A.LINE_ID                                                                      ', '0', 0, 'A11', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('660D0A07947A456B83EC320830D9D6BB', 'A00012', '表3-1  存续产品分合同期限募集余额', '-- 取数据 测试条件 20181201 -20181231 
@@ -1244,7 +1244,7 @@ SELECT LINE_ID, --行编号
                                PFTERMINATION_END_ID - PF_BEGIN_DATE <= 90 THEN
                            ''1-3个月（含）''
                           WHEN PF_OPERATING IN (''PB2003'', ''PB2004'') AND
-                               90 < PFTERMINATION_END_ID - PF_B', '0', 0, 'A12', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '11-3月 -19 03.06.43.076000 下午', 'A0000901', 'A0000201');
+                               90 < PFTERMINATION_END_ID - PF_B', '0', 0, 'A12', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('9891B010AE194BD8B9422E40E92A060D', 'A00013', '表3-2  新发产品分合同期限募集金额', '-- 取数据 测试条件 20181201 -20181231  PB3001
@@ -1306,7 +1306,7 @@ SELECT Line_Id, --行编号
           from (SELECT *
                   FROM TP_GL_PB_HEAD T
                  where rep_id = ''PB13''
-', '0', 0, 'A13', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '11-3月 -19 02.42.22.628000 下午', 'A0000901', 'A0000201');
+', '0', 0, 'A13', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D5E31DF70E954AE18CBD797155894988', 'A00003', '表1-3只数情况', '-- 测试条件  20181201 - 20181231 PB3001
@@ -1362,7 +1362,7 @@ CASE WHEN SUM(NVL(RMB_ZZ,0)) = 0 THEN NULL ELSE SUM(NVL(RMB_ZZ,0)) END  as RMB_Z
 CASE WHEN SUM(NVL(WB_ZZ,0)) = 0 THEN NULL ELSE SUM(NVL(WB_ZZ,0)) END  as WB_ZZ,--终止外币
 CASE WHEN SUM(NVL(RMB_ZZ,0)+ NVL(WB_ZZ,0)) = 0 THEN NULL ELSE SUM(NVL(RMB_ZZ,0)+ NVL(WB_ZZ,0)) END  AS HJ_ZZ--终止合计
 from (
-  --附属信息有', '0', 0, 'A03', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.36.53.673000 上午', 'A0000901', 'A0000201');
+  --附属信息有', '0', 0, 'A03', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('9891B010AE194BD8B9422E40E92A060A', 'A00014', '表3-3资产负债剩余期限', '--表3-3 资管产品资产负债剩余期限统计模板完整取数SQL
@@ -1434,7 +1434,7 @@ SELECT A.LINE_ID,
               WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 0 AND 30 THEN ''1个月（含）以下''
               WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 31 AND 90 THEN ''1-3个月（含）''
               WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 91 AND 180 THEN ''3-6个月（含）''
-              WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 181 AND 360 THEN ''6-12个月（', '0', 0, 'A14', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '28-2月 -19 09.11.47.515000 下午', 'A0000901', 'A0000201');
+              WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 181 AND 360 THEN ''6-12个月（', '0', 0, 'A14', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('8713A8504823459B9D8601E91BBADD73', 'A00046', '下属产品募集信息', '
@@ -1507,7 +1507,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH, --机构编号
    AND (T01.IPOENDDATE IS NULL OR T01.IPOENDDATE >= ''${FENDDATE}'')
 
  GROUP BY T3.CPDM, T01.PF_ID, T01.IPOSTARTDATE, T01.IPOENDDATE,T01.PF_ID
- ORDER BY T3.CPDM, T01.PF_ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ', '0', null, 'A1007', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ORDER BY T3.CPDM, T01.PF_ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ', '0', null, 'A1007', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D48D228307F74ACEBF0F134D216EB262', 'A00071', '协议回购投资明细', '
@@ -1598,7 +1598,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
             ON A.PF_ID = P.PF_ID
           LEFT JOIN TC_MK_COUNTERPARTY TC 
             ON A.C_SEC_CODE = TC.CMP_CODE  -- 按证券代码关联客户手工维护的对手方信息
-         WHERE (A.C', '0', null, 'A1035', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+         WHERE (A.C', '0', null, 'A1035', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D3F78568845644D486DA53DB538BE024', 'A00064', '优先股投资明细', '
@@ -1684,7 +1684,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
                      WHEN T1.C_DV_ISSUE_MODE = ''WSS_WX_FGKXS'' THEN
                       T1.ATTYPE_AMOUNT_OC
                    END) AS FLTGFSZ,
-               S', '0', null, 'A1028', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+               S', '0', null, 'A1028', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0CAA36205A7942668D8BE2C825F13111', 'A00065', '债券投资明细', '
@@ -1778,7 +1778,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
           FROM TC_HP_PB_DOM_INFO T1
          WHERE T1.PF_ID ${PFID}
            AND T1.BIZ_DATE = ''${FENDDATE}''
-           AND T1.C_D', '0', null, 'A1029', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+           AND T1.C_D', '0', null, 'A1029', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('90B96773858643679BE7EFA2B77EC91E', 'A00053', '账户汇总', '/*
@@ -1854,7 +1854,7 @@ WITH V_ACCOUNT AS
                            WHEN T1.INDIVIDUALORINSTITUTION = ''0'' THEN
                             ''02''
                            WHEN T1.INDIVIDUALORINSTITUTION = ''2'' THEN
-                            ''03', '0', null, 'A1016', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                            ''03', '0', null, 'A1016', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('FB1A257BE57F4F86897E80F003BF29E2', 'A00062', '资产组合', 'WITH TT1 AS --报表头部
@@ -1927,7 +1927,7 @@ TT3 AS
                    ,SUM(ATTYPE_COST_OC) AS JE2
              FROM TC_HP_PB_DOM_INFO
             WHERE BIZ_DATE = ''${FENDDATE}''
-            ', '0', null, 'A1026', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+            ', '0', null, 'A1026', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D32F1E102B1B42AEBB57FC4BDB7AF289', 'A00047', '产品成立信息', '/*
@@ -2036,7 +2036,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH, --机构编号
                    WHEN EXCHANGEFLAG NOT IN (''0'', ''1'') THEN
                     CONFIRMEDVOL
                    ELSE
-              ', '0', null, 'A1008', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', '超级管理员', '04-6月 -19 04.45.12.590000 下午', 'A0000901', 'A0000202');
+              ', '0', null, 'A1008', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('FD7A946A85D34958B053B7308A01A9B8', 'A00040', '产品基本信息', '/*
@@ -2125,7 +2125,7 @@ SELECT
   t0.SQQRTS,--申请确认天数
   t0.CPLX,--产品类型
   CASE WHEN t0.CPLX = ''1'' THEN t0.HZRQ END HZRQ,--核准日期
-  CASE WHEN t0.CPLX = ''1'' THE', '0', null, 'A1001', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+  CASE WHEN t0.CPLX = ''1'' THE', '0', null, 'A1001', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('6497CF43484E43B2B575CB70595D8C94', 'A00051', '产品净值信息', 'WITH TT AS
@@ -2197,7 +2197,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
             ON T3.PF_ID = T2.PF_ID
           LEFT JOIN TT T4
             ON T4.TA_PF_ID = T1.FZJJDM)
- --WHERE BIZ_DATE = ''${FENDDATE}''            ', '0', null, 'A1012', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ --WHERE BIZ_DATE = ''${FENDDATE}''            ', '0', null, 'A1012', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0D77527D936B4F1CBDFCA59396DFFE1E', 'A00045', '产品募集信息', '
@@ -2267,7 +2267,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH, --机构编号
    AND (T1.COLLECT_END_DATE IS NULL OR T1.COLLECT_END_DATE >= ''${FENDDATE}'')
 
  GROUP BY T3.CPDM, T1.COLLECT_BEGIN_DATE, T1.COLLECT_END_DATE,T2.PF_ID
- ORDER BY T3.CPDM                                                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A1006', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ORDER BY T3.CPDM                                                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A1006', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('A148893E2405430BADB2E51B2646E7A6', 'A00049', '产品运行信息', '/*-- Create table
@@ -2377,7 +2377,7 @@ SELECT T1.PF_ID AS FUNDCODE, -- 产品代码
        END AS SHKSRQ, --赎回开始日期
        CASE
          WHEN T2.CPLX = ''1'' THEN
-          T6.SHARECONV_DA', '0', null, 'A1010', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+          T6.SHARECONV_DA', '0', null, 'A1010', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('6971C4003CFD458DAA13EE75A0193218', 'A00058', '份额汇总', '                  
@@ -2459,7 +2459,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH, --机构编码
                   T4.F_INVESTTYPE,
                   T2.PF_ID
                   ) T
- GROUP BY CPDM, CNWBZ, DISTRIBUTORCODE, CUSTTY', '0', null, 'A1021', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ GROUP BY CPDM, CNWBZ, DISTRIBUTORCODE, CUSTTY', '0', null, 'A1021', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('1D056EF7863A4E14B74440BBEC2FC1A0', 'A00063', '股票投资明细', '--股票投资明细
@@ -2544,7 +2544,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
                SUM(CASE
                      WHEN T1.C_DV_ISSUE_MODE LIKE ''%ZF'' OR
                           T1.C_DV_ISSUE_MODE IN (''WSS_WX_LG'', ''WSS_WS_PG'') THEN
-                      T1', '0', null, 'A1027', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                      T1', '0', null, 'A1027', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D671087E7A9A49CB8AF364AD1F6A4A65', 'A00056', '交易汇总', '/*
@@ -2637,7 +2637,7 @@ WITH V_TRADE AS
                  END) SXFGGLR, --手续费归管理人
                  SUM(TRADEFARE4AGT) SXFGXSJG, --手续费归销售机构
                  SUM(TRADEFARE4FUND) SXFGCPZC, --手续费归产品资产
-                 SUM(TOTALB', '0', null, 'A1019', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                 SUM(TOTALB', '0', null, 'A1019', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D09E1A0D10B14E09BFDE4684106A5481', 'A00044', '产品文件信息', '/*
@@ -2677,7 +2677,7 @@ values ('D09E1A0D10B14E09BFDE4684106A5481', 'A00044', '产品文件信息', '/*
    AND NVL(D.SFSBJJ, ''0'') <> ''1''
    AND NVL(D.SFYYNJ, ''0'') <> ''1''
    AND F.OPERATEDATE = ''${FENDDATE}''
- ORDER BY D.CPDM, F.FILE_TYPE, F.OPERATEDATE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ', '0', null, 'A1005', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ORDER BY D.CPDM, F.FILE_TYPE, F.OPERATEDATE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ', '0', null, 'A1005', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('2BDAED272C0C406CBEA7043AECCDC406', 'A00026', '表3-1  存续产品分合同期限募集余额', '-- 取数据 测试条件 20181201 -20181231 
@@ -2745,7 +2745,7 @@ SELECT LINE_ID, --行编号
                                PFTERMINATION_END_ID - PF_BEGIN_DATE <= 90 THEN
                            ''1-3个月（含）''
                           WHEN PF_OPERATING IN (''PB2003'', ''PB2004'') AND
-                               90 < PFTERMINATION_END_ID - PF_B', '1', 0, 'A12', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '11-3月 -19 03.06.43.076000 下午', 'A0000901', 'A0000201');
+                               90 < PFTERMINATION_END_ID - PF_B', '1', 0, 'A12', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('7FAD42727C4546998498682CB8BDA774', 'A00027', '表3-2  新发产品分合同期限募集金额', '-- 取数据 测试条件 20181201 -20181231  PB3001
@@ -2807,7 +2807,7 @@ SELECT Line_Id, --行编号
           from (SELECT *
                   FROM TP_GL_PB_HEAD T
                  where rep_id = ''PB13''
-', '1', 0, 'A13', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '11-3月 -19 02.42.22.628000 下午', 'A0000901', 'A0000201');
+', '1', 0, 'A13', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('544A05FEE9224148B0481BAB8AB866A3', 'A00017', '表1-3只数情况', '-- 测试条件  20181201 - 20181231 PB3001
@@ -2863,7 +2863,7 @@ CASE WHEN SUM(NVL(RMB_ZZ,0)) = 0 THEN NULL ELSE SUM(NVL(RMB_ZZ,0)) END  as RMB_Z
 CASE WHEN SUM(NVL(WB_ZZ,0)) = 0 THEN NULL ELSE SUM(NVL(WB_ZZ,0)) END  as WB_ZZ,--终止外币
 CASE WHEN SUM(NVL(RMB_ZZ,0)+ NVL(WB_ZZ,0)) = 0 THEN NULL ELSE SUM(NVL(RMB_ZZ,0)+ NVL(WB_ZZ,0)) END  AS HJ_ZZ--终止合计
 from (
-  --附属信息有', '1', 0, 'A03', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.36.53.673000 上午', 'A0000901', 'A0000201');
+  --附属信息有', '1', 0, 'A03', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('B6E0A3279B7443C091CEB27AFFB1BA59', 'A00028', '表3-3资产负债剩余期限', '--表3-3 资管产品资产负债剩余期限统计模板完整取数SQL
@@ -2935,7 +2935,7 @@ SELECT A.LINE_ID,
               WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 0 AND 30 THEN ''1个月（含）以下''
               WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 31 AND 90 THEN ''1-3个月（含）''
               WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 91 AND 180 THEN ''3-6个月（含）''
-              WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 181 AND 360 THEN ''6-12个月（', '1', 0, 'A14', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '28-2月 -19 09.11.47.515000 下午', 'A0000901', 'A0000201');
+              WHEN TO_DATE(A.HGDQRQ, ''YYYYMMDD'') - TO_DATE(''${FENDDATE}'', ''YYYYMMDD'') BETWEEN 181 AND 360 THEN ''6-12个月（', '1', 0, 'A14', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('2A2654D1E30E4562834E38B4D1D90E6E', 'A00015', '表1-1 募集余额', '--续存募集余额(1.产品起始时间和结束时间在报告期间 , 2 客户维度 份额表.份额*行情表.单位净值 3. 产品维度直接取 TC_PF_PB_COLLECT_RENEW 字段 MV_AMOUNT )
@@ -3003,7 +3003,7 @@ SELECT t.HBH,--行编号
   t.ZM,--项目
   (CASE WHEN t.RMB = 0  THEN NULL ELSE T.RMB /10000 END)  AS RMB,--人民币
   (CASE WHEN t.MYZRMB= 0  THEN NULL ELSE t.MYZRMB /10000 END)  AS MYZRMB,--美元折人民币
-  (CA', '1', 0, 'A01', 0, null, 'admin', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.39.48.745000 上午', 'A0000901', 'A0000201');
+  (CA', '1', 0, 'A01', 0, null, 'admin', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0D91B19A01CE44FE8D51CFA57D7081FF', 'A00016', '表1-2募集及兑付发生额', '--1-2
@@ -3079,7 +3079,7 @@ AND (-- 交易数据(金正实时、恒生实时募集及兑付)
     FROM TR_DF_TA_TDCON_HZ T
    INNER JOIN TP_GL_TA_CORRESPD T1
       ON T1.TA_CODE = T.FBUSINESSCODE
-     AND T1.RIS', '1', 0, 'A02', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.36.27.599000 上午', 'A0000901', 'A0000201');
+     AND T1.RIS', '1', 0, 'A02', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('6BC6E24146F343E39B1E635F87C1E965', 'A00018', '表1-4 境内募集余额分地区', '--获取单个对应地区金额
@@ -3141,7 +3141,7 @@ V_TOTVOLOFDISTA AS (SELECT sum(T0.TOTVOLOFDISTA * T2.NAV)/10000  AS MV_AMOUNT,--
             --计算总金额(行情总金额-境外值)
   V_TOTVOLOFDISTA_1 AS (
           SELECT SUM(TOTAL) AS TOTAL, CUR_D FROM (
-            SELECT SUM(TOTAL) AS TOTAL,  CUR_D  FROM v_total GROUP ', '1', 0, 'A04', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.37.16.689000 上午', 'A0000901', 'A0000201');
+            SELECT SUM(TOTAL) AS TOTAL,  CUR_D  FROM v_total GROUP ', '1', 0, 'A04', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('8AF172ED3B454D53BE8400D755ACD54A', 'A00019', '表1-5 资管产品提前及延期兑付情况', '--人行-资管产品提前及延期兑付情况
@@ -3187,7 +3187,7 @@ FROM(SELECT A.LINE_ID AS HBH, --行编号
         --获取清盘信息,获取的确认日期必须跟清盘日期相等
         INNER JOIN TR_DF_TA_LQDSCE T1 ON T0.FUNDCODE  =T1.FUNDCODE AND T0.TRANSACTIONCFMDATE = T1.LQDDT
         --获取PF_ID 与 fundcode 对应关系
-       ', '1', 0, 'A05', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.37.36.788000 上午', 'A0000901', 'A0000201');
+       ', '1', 0, 'A05', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('E3C235E8490147678F94272D14314248', 'A00020', '表1-6 资管产品到期未兑付情况', '--到期未兑付
@@ -3236,7 +3236,7 @@ SELECT A.HBH          AS HBH, --行编号
                 --WHERE T1.SRC_SYS = ''TA'' AND T2.ATTACHED_VALUE = ''${FUNDTYPE}''
           INNER join (SELECT NVL(F_CUSTTYPE,''PB1001'') AS F_CUSTTYPE,TAACCOUNTID,REPLACE(F_CUSTTYPE1,'' '','''') AS F_CUSTTYPE1 FROM TC_PF_PB_TA_ACCOUNT) M on M.TAACCOUNTID=B.TAACCOUNTID
           RIGHT JOIN (SELECT A.LINE_ID, -- 行编号
-     ', '1', 0, 'A06', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.37.56.898000 上午', 'A0000901', 'A0000201');
+     ', '1', 0, 'A06', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D5E31DF70E954AE18CBD797155894934', 'A00001', '表1-1 募集余额', '--续存募集余额(1.产品起始时间和结束时间在报告期间 , 2 客户维度 份额表.份额*行情表.单位净值 3. 产品维度直接取 TC_PF_PB_COLLECT_RENEW 字段 MV_AMOUNT )
@@ -3304,7 +3304,7 @@ SELECT t.HBH,--行编号
   t.ZM,--项目
   (CASE WHEN t.RMB = 0  THEN NULL ELSE T.RMB /10000 END)  AS RMB,--人民币
   (CASE WHEN t.MYZRMB= 0  THEN NULL ELSE t.MYZRMB /10000 END)  AS MYZRMB,--美元折人民币
-  (CA', '0', 0, 'A01', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.36.04.442000 上午', 'A0000901', 'A0000201');
+  (CA', '0', 0, 'A01', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('D5E31DF70E954AE18CBD797155894956', 'A00002', '表1-2募集及兑付发生额', '--1-2
@@ -3380,7 +3380,7 @@ AND (-- 交易数据(金正实时、恒生实时募集及兑付)
     FROM TR_DF_TA_TDCON_HZ T
    INNER JOIN TP_GL_TA_CORRESPD T1
       ON T1.TA_CODE = T.FBUSINESSCODE
-     AND T1.RIS', '0', 0, 'A02', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.36.27.599000 上午', 'A0000901', 'A0000201');
+     AND T1.RIS', '0', 0, 'A02', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('9AE8544D35BC4F36BDA6B19890C29C22', 'A00004', '表1-4 境内募集余额分地区', '--获取单个对应地区金额
@@ -3442,7 +3442,7 @@ V_TOTVOLOFDISTA AS (SELECT sum(T0.TOTVOLOFDISTA * T2.NAV)/10000  AS MV_AMOUNT,--
             --计算总金额(行情总金额-境外值)
   V_TOTVOLOFDISTA_1 AS (
           SELECT SUM(TOTAL) AS TOTAL, CUR_D FROM (
-            SELECT SUM(TOTAL) AS TOTAL,  CUR_D  FROM v_total GROUP ', '0', 0, 'A04', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.37.16.689000 上午', 'A0000901', 'A0000201');
+            SELECT SUM(TOTAL) AS TOTAL,  CUR_D  FROM v_total GROUP ', '0', 0, 'A04', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('807FD3972A7B4867A5AC0F5EEE326932', 'A00005', '表1-5 资管产品提前及延期兑付情况', '--人行-资管产品提前及延期兑付情况
@@ -3489,7 +3489,7 @@ FROM(SELECT A.LINE_ID AS HBH, --行编号
         --获取清盘信息,获取的确认日期必须跟清盘日期相等
         INNER JOIN TR_DF_TA_LQDSCE T1 ON T0.FUNDCODE  =T1.FUNDCODE AND T0.TRANSACTIONCFMDATE = T1.LQDDT
         --获取PF_ID 与 fundcode 对应关系
-      ', '0', 0, 'A05', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.37.36.788000 上午', 'A0000901', 'A0000201');
+      ', '0', 0, 'A05', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('3A1EB0BD9E014312AC0933701A77B75E', 'A00006', '表1-6 资管产品到期未兑付情况', '--到期未兑付
@@ -3538,7 +3538,7 @@ SELECT A.HBH          AS HBH, --行编号
                 --WHERE T1.SRC_SYS = ''TA'' AND T2.ATTACHED_VALUE = ''${FUNDTYPE}''
           INNER join (SELECT NVL(F_CUSTTYPE,''PB1001'') AS F_CUSTTYPE,TAACCOUNTID,REPLACE(F_CUSTTYPE1,'' '','''') AS F_CUSTTYPE1 FROM TC_PF_PB_TA_ACCOUNT) M on M.TAACCOUNTID=B.TAACCOUNTID
           RIGHT JOIN (SELECT A.LINE_ID, -- 行编号
-     ', '0', 0, 'A06', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '14-3月 -19 01.37.56.898000 上午', 'A0000901', 'A0000201');
+     ', '0', 0, 'A06', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('E695748CF5EC489F84AA5F69CB12BA47', 'A00007', '表2-1资管产品资产负债情况', '--表2-1取数完整SQL 
@@ -3592,7 +3592,7 @@ WITH TT_PF AS
                  --NVL(B.NODE_NAME, ATTYPE_EXT_ID_NAME) AS ATTYPE_EXT_ID_NAME,
                  CASE WHEN A.CUR_D = ''CNY'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS RMB_AMOUNT_OC, --人民币
                  CASE WHEN A.CUR_D = ''USD'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS USD_AMOUNT_OC, --美元，
-                 CASE WHEN A.CUR_D = ''EUR'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS EUR_AMOUNT', '0', 0, 'A07', 0, null, 'weijunqi', '21-1月 -19 11.41.42.000000 上午', '超级管理员', '22-5月 -19 07.23.18.475000 下午', 'A0000901', 'A0000201');
+                 CASE WHEN A.CUR_D = ''EUR'' THEN DECODE(PB1001, ''PB100101'', A.ATTYPE_COST_OC, A.ATTYPE_AMOUNT_OC) END AS EUR_AMOUNT', '0', 0, 'A07', 0, null, 'weijunqi', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000201');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('88B8E2708F994FAC8FE2919C88344148', 'A00069', '同业存单投资明细', '
@@ -3683,7 +3683,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
                            N_TD_AMOUNT
                         END) AS MCSL,
                     SUM(CASE
-                          WH', '0', null, 'A1033', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                          WH', '0', null, 'A1033', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0292DB2677214EFB915A945B5EA4C7BB', 'A00054', '投资者年龄结构', '/*
@@ -3759,7 +3759,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH, --机构编号
        ''${FENDDATE}'' QMRQ, --期末日期
        DJJGDM, --登记机构代码
        DJJGMC, --登记机构名称
-       NLFD, ', '0', null, 'A1017', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+       NLFD, ', '0', null, 'A1017', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0BA14C09AEDF4B0F9B6AD0827391A619', 'A00101', '产品最终投资者', 'WITH TT AS
@@ -3830,7 +3830,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH, --机构编号
    AND T5.PF_TYPE = ''YSS_45''
  WHERE T2.PF_ID IS NOT NULL
    AND T2.END_DATE>=''${FENDDATE}''
- ORDER BY T3.CPDM, T1.XCCPMC, T1.SCCPMC                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A3024', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ORDER BY T3.CPDM, T1.XCCPMC, T1.SCCPMC                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A3024', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('A8051495FA11495F9229AFEC1AF68CF0', 'A00073', '商品现货投资明细', '
@@ -3904,7 +3904,7 @@ SELECT  FU_Get_FISP_SJZD(''报送机构编号'') AS JGBH,
            AND A.BIZ_DATE BETWEEN  ''${FENDDATE}''  AND  ''${FENDDATE}'' ) A
            left join V_PF_CPDM P
   on A.PF_ID=P.PF_ID
- GROUP BY A.PF_ID, JYCSDM, SYMBOL_CODE, SEC_CODE_NAME,P.CPDM                                    ', '0', null, 'A1037', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ GROUP BY A.PF_ID, JYCSDM, SYMBOL_CODE, SEC_CODE_NAME,P.CPDM                                    ', '0', null, 'A1037', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('CC5C69274BA240DCA3FC4ED1EC298CC4', 'A00041', '下属产品基本信息', '--02下属产品基本信息
@@ -3944,7 +3944,7 @@ INNER JOIN TP_GL_FUNDCODE_MAP C ON A.PF_ID = C.TA_PF_ID AND C.SRC_SYS <> ''TA''
 INNER JOIN V_PF_BSC_INFO_ATTACHED D ON A.PF_ID = D.PF_ID
 WHERE   A.PF_REAL_END_DATE >= ''${FENDDATE}''
 AND C.PF_ID ${PFID}
-ORDER BY D.CPDM, B.PF_ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A1002', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ORDER BY D.CPDM, B.PF_ID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ', '0', null, 'A1002', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('9A204B22928E5EDDE0536ABCA8C09AEF', 'SZ001', '深圳系统计算T+N数据日期sql维护', 'WITH TT_PF_DATE AS
@@ -4004,7 +4004,7 @@ TT_REST_DAY AS (
                OR ( T2.CPLB=''03'' AND T3.DOWN_DATE=T2.BIZ_DATE AND T2.REPORT_ID IN (''A1026'',''A1012'',''A1066''))
                OR ( T3.DOWN_DATE=T2.BIZ_DATE AND T2.REPORT_ID IN (''A1004'',''A1005''))
                 
-             ', '3', null, 'A1001', null, '全量', '超级管理员', '13-11月-19 10.54.53.000000 上午', '超级管理员', '13-11月-19 10.54.53.000000 上午', 'A0000901', 'A0000202');
+             ', '3', null, 'A1001', null, '全量', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('22D7C8B3870D4B6381020776FF7084FD', 'A00059', '产品关系人购买情况', 'with  TEMP_TS_CPGXRGMQKB as ( select *
@@ -4071,7 +4071,7 @@ values ('22D7C8B3870D4B6381020776FF7084FD', 'A00059', '产品关系人购买情�
            AND T7.RISK_TYPE = ''PB16''
          WHERE T5.PF_ID ${PFID}   )
  GROUP BY CPDM, TZZJJZH, TZZZHMC, TZZZJLX, TZZZJHM, TZZYBCPGX,PF_ID
- ORDER BY CPDM, TZZJJZH                                                                                                                                                                                                                                                                                                ', '0', null, 'A1022', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ORDER BY CPDM, TZZJJZH                                                                                                                                                                                                                                                                                                ', '0', null, 'A1022', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('51D3743808C84D029FC84E39B559E685', 'A00072', '协议回购质押券明细', '
@@ -4153,7 +4153,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
                        ''10'' -- 国际机构债
                       WHEN ZQLB = ''大额存单'' THEN  -- 暂无此类型
                        ''11''
-                      WHEN ZQLB = ''16'' THEN -- 资产支持证券（在交易所挂牌）', '0', null, 'A1036', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                      WHEN ZQLB = ''16'' THEN -- 资产支持证券（在交易所挂牌）', '0', null, 'A1036', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('E6020E20FC0C40898789777676C67B0A', 'A00070', '债券回购投资明细', '---债券回购投资明细表
@@ -4215,7 +4215,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
           T1.PZDM,
           T1.HGFX,
           T1.CJRQ,
-          T1.HGDQRQ                                               ', '0', null, 'A1034', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+          T1.HGDQRQ                                               ', '0', null, 'A1034', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('CB47DFDA6C9C4B09AFF592257C70E240', 'A00099', '资产负债表', '--资产负债表
@@ -4306,7 +4306,7 @@ SELECT T1.JGBH,
               WHERE (PF_ID, C_REPORT_CODE) IN
                     (SELECT PF_ID, C_REPORT_CODE FROM TT3)
                 AND BIZ_DATE IN (''${FENDDATE}'',
-                                 TO_CHAR(TO_DATE(SUBS', '0', null, 'A3014', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                                 TO_CHAR(TO_DATE(SUBS', '0', null, 'A3014', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('0C462F59FE5C42B8A705EF8999F328AF', 'A00055', '投资者份额结构', '  
@@ -4424,7 +4424,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH, --机构编码
 	   '''' BZ
      ,''1060000001'' AS PF_ID
   FROM V_ACCRECDATA
- ORDER BY DJJGDM, CYSZFD                                                                                                                 ', '0', null, 'A1018', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ ORDER BY DJJGDM, CYSZFD                                                                                                                 ', '0', null, 'A1018', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('73ECAB22BB1B42C2BD5D52725A8DECA0', 'A00087', '转融券投资明细', '
@@ -4491,7 +4491,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
               GROUP BY ZQDM, SSSC, ZQLB) B
     ON ZQDM = C_SEC_CODE
    AND SSSC = JYCSDM
-LEFT JOIN v_pf_cpdm CP ON A.pf_id = CP.TA_PF_ID                                     ', '0', null, 'A1051', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+LEFT JOIN v_pf_cpdm CP ON A.pf_id = CP.TA_PF_ID                                     ', '0', null, 'A1051', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('C1CF514F48C046409683C83921DD4440', 'A00077', '场内期权投资明细', '--场内期权投资明细
@@ -4579,7 +4579,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
                NVL(ATTYPE_QTY, 0) AS QMSL,
                NVL(ATTYPE_AMOUNT_OC, 0) AS QMHYJZ
           FROM TC_HP_PB_DOM_INFO A
-', '0', null, 'A1041', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+', '0', null, 'A1041', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('3B168E91ABFA4FE1A2D1A63B7DC5C5F1', 'A00066', '标准化资管产品投资明细', '
@@ -4668,7 +4668,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
    AND T1.SYMBOL_CODE = T2.C_SEC_CODE
   LEFT JOIN (SELECT ZQDM,
                     --SSSC,
-      ', '0', null, 'A1030', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+      ', '0', null, 'A1030', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('36BE0D33F1144BDB97B6B043EB0FEFD0', 'A00088', '收益凭证投资明细', '-- 融通基金境外结构化票据投资归属于收益凭证
@@ -4761,7 +4761,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') JGBH,
                         END) AS MRJE,
                     SUM(CASE
                           WHEN T2.N_CAPI_WAY = -1 THEN
-     ', '0', null, 'A1052', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+     ', '0', null, 'A1052', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('19E03A58DBCB476CAC177A0B54BD7937', 'A00075', '金融期货投资明细', '
@@ -4846,7 +4846,7 @@ SELECT FU_GET_FISP_SJZD(''报送机构编号'') AS JGBH,
            AND T1.C_SEC_VAR_CODE = ''QH''
            AND T1.C_SEC_VAR_CODE_SUB IN (''QH_GZ'', ''QH_ZQ'', ''QH_WH'', ''QH_GP'',''QH_QHGZ'')) T1 -- 持仓数据
   LEFT JOIN (SELECT T2.PF_ID,
-                    ', '0', null, 'A1039', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+                    ', '0', null, 'A1039', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('F80D2B83DDE3451F9A5B10E1C5FB1057', 'A00078', '其他各项资产明细', ' 
@@ -4932,7 +4932,7 @@ TT3 AS
    GROUP BY PF_ID, SUBSTR(ZCLB, 1, 1))
 
 SELECT T1.JGBH,
-     ', '0', null, 'A1042', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+     ', '0', null, 'A1042', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('CA0ECDCD9AE44BE5806AC603C76D2BFD', 'A00042', '产品投资比例限制', '--03产品投资比例限制 增量
@@ -4967,7 +4967,7 @@ FROM TC_PF_INVLIMIT_INFO A
 INNER JOIN   V_PF_CPDM B ON  A.CPDM = B.TA_PF_ID
 WHERE A.YWDATE = ''${FENDDATE}''
 AND B.PF_ID ${PFID}
-ORDER BY A.CPDM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ', '0', null, 'A1003', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+ORDER BY A.CPDM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ', '0', null, 'A1003', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 insert into TC_REP_DATASET (ID, DATASET_CODE, DATASET_NAME, DATASET_SQL, DATASET_PARAM, DB_TYPE, REPORT_ID, DATA_SOURCE, MEMO, CREATE_PRSN, CREATE_TIME, MDFY_PRSON, MDFY_TIME, IS_ENABLE, REGULATION_RULE)
 values ('9BCE689E6E6143719909A675F5D5F098', 'A00074', '商品现货延期交收投资明细', '
@@ -5043,6 +5043,6 @@ SELECT  FU_Get_FISP_SJZD(''报送机构编号'') AS JGBH,
           B.C_DT_CODE,
           MARKET_CODE,
           P.CPDM,
-          A.C_SEC_VAR_CODE /*,B.C_EXE_FHYDW_I*/                                                            ', '0', null, 'A1038', null, 'zjh', '超级管理员', '25-5月 -19 04.10.25.628000 下午', null, null, 'A0000901', 'A0000202');
+          A.C_SEC_VAR_CODE /*,B.C_EXE_FHYDW_I*/                                                            ', '0', null, 'A1038', null, 'zjh', '超级管理员', to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), null, to_date('13-01-2020 14:22:22', 'dd-mm-yyyy hh24:mi:ss'), 'A0000901', 'A0000202');
 
 prompt Done.
